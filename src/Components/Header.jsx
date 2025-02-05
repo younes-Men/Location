@@ -38,7 +38,7 @@ const Header = () => {
           <div className="flex items-center gap-2">
             <BiCar className="text-4xl text-blue-900" />
             <h1 className="text-xl font-bold text-blue-900">
-              Rent Car
+              Younes Car
               <span className="block text-sm font-normal text-gray-600">Service</span>
             </h1>
           </div>
