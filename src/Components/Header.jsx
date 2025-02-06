@@ -1,10 +1,18 @@
-import { useState } from "react"
-import { BiPhone, BiUser, BiSearch, BiCar, BiTime, BiMapPin, BiMenu } from "react-icons/bi"
-import React from "react"
+import { useState } from "react";
+import {
+  BiPhone,
+  BiUser,
+  BiSearch,
+  BiCar,
+  BiTime,
+  BiMapPin,
+  BiMenu,
+} from "react-icons/bi";
+import React from "react";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="w-full">
@@ -15,16 +23,25 @@ const Header = () => {
             <span>Need Help?</span>
             <div className="flex items-center gap-1">
               <BiPhone className="text-lg" />
-              <a href="tel:+321123345978" className="hover:text-blue-300 transition-colors">
-                Call: +321 123 45 978
+              <a
+                href="tel:+321123345978"
+                className="hover:text-blue-300 transition-colors"
+              >
+                Tél: +212 64455-3500
               </a>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="/login" className="flex items-center gap-1 hover:text-blue-300 transition-colors">
+            <a
+              href="/login"
+              className="flex items-center gap-1 hover:text-blue-300 transition-colors"
+            >
               <BiUser /> Login
             </a>
-            <a href="/register" className="flex items-center gap-1 hover:text-blue-300 transition-colors">
+            <a
+              href="/register"
+              className="flex items-center gap-1 hover:text-blue-300 transition-colors"
+            >
               <BiUser /> Register
             </a>
           </div>
@@ -39,7 +56,9 @@ const Header = () => {
             <BiCar className="text-4xl text-blue-900" />
             <h1 className="text-xl font-bold text-blue-900">
               Younes Car
-              <span className="block text-sm font-normal text-gray-600">Service</span>
+              <span className="block text-sm font-normal text-gray-600">
+                Service
+              </span>
             </h1>
           </div>
 
@@ -48,16 +67,16 @@ const Header = () => {
             <div className="flex items-center gap-2 text-gray-600">
               <BiMapPin className="text-2xl text-blue-900" />
               <div>
-                <div className="font-semibold">Bangladesh</div>
-                <div className="text-sm">Sylhet City, Bangladesh</div>
+                <div className="font-semibold">Marrakech</div>
+                <div className="text-sm">Guéliz, Marrakech</div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-gray-600">
               <BiTime className="text-2xl text-blue-900" />
               <div>
-                <div className="font-semibold">Sunday to Friday</div>
-                <div className="text-sm">10am - 7pm</div>
+                <div className="font-semibold">Lundi à Samedi</div>
+                <div className="text-sm">9am - 7pm</div>
               </div>
             </div>
           </div>
@@ -74,15 +93,21 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Mobile Menu Button */}
-            <button className="md:hidden text-2xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button
+              className="md:hidden text-2xl"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
               <BiMenu />
             </button>
 
             {/* Desktop Menu Items */}
-            <ul className="hidden md:flex items-center gap-6">
+            <ul className="hidden md:flex items-center gap-6 ml-35">
               {["Home", "About", "Cars", "Blog", "Contact"].map((item) => (
                 <li key={item}>
-                  <a href={`/${item.toLowerCase()}`} className="hover:text-blue-300 transition-colors">
+                  <a
+                    href={`/${item.toLowerCase()}`}
+                    className="hover:text-blue-300 transition-colors"
+                  >
                     {item}
                   </a>
                 </li>
@@ -108,7 +133,10 @@ const Header = () => {
               <ul className="flex flex-col gap-4">
                 {["Home", "About", "Cars", "Blog", "Contact"].map((item) => (
                   <li key={item}>
-                    <a href={`/${item.toLowerCase()}`} className="block hover:text-blue-300 transition-colors">
+                    <a
+                      href={`/${item.toLowerCase()}`}
+                      className="block hover:text-blue-300 transition-colors"
+                    >
                       {item}
                     </a>
                   </li>
@@ -129,8 +157,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;

@@ -1,12 +1,10 @@
-"use client"
-
-import { useState, useEffect, useCallback } from "react"
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import slider1 from "../../public/slider-1.jpg"
-import slider2 from "../../public/slider-2.jpg"
-import slider3 from "../../public/slider-3.jpg"
-import React from "react"
+import { useState, useEffect, useCallback } from "react";
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import slider1 from "../../public/slider-1.jpg";
+import slider2 from "../../public/slider-2.jpg";
+import slider3 from "../../public/slider-3.jpg";
+import React from "react";
 
 export default function Body() {
   const slides = [
@@ -28,26 +26,28 @@ export default function Body() {
       price: "$70/day",
       description: "Sporty elegance redefined",
     },
-  ]
+  ];
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [direction, setDirection] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const paginate = useCallback(
     (newDirection) => {
-      setDirection(newDirection)
-      setCurrentSlide((prev) => (prev + newDirection + slides.length) % slides.length)
+      setDirection(newDirection);
+      setCurrentSlide(
+        (prev) => (prev + newDirection + slides.length) % slides.length
+      );
     },
-    [slides.length],
-  )
+    [slides.length]
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
-      paginate(1)
-    }, 6000)
+      paginate(1);
+    }, 6000);
 
-    return () => clearInterval(timer)
-  }, [paginate])
+    return () => clearInterval(timer);
+  }, [paginate]);
 
   const slideVariants = {
     enter: (direction) => ({
@@ -64,12 +64,12 @@ export default function Body() {
       x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
     }),
-  }
+  };
 
-  const swipeConfidenceThreshold = 10000
+  const swipeConfidenceThreshold = 10000;
   const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity
-  }
+    return Math.abs(offset) * velocity;
+  };
 
   return (
     <div className="relative min-h-screen bg-gray-900">
@@ -91,12 +91,12 @@ export default function Body() {
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
             onDragEnd={(e, { offset, velocity }) => {
-              const swipe = swipePower(offset.x, velocity.x)
+              const swipe = swipePower(offset.x, velocity.x);
 
               if (swipe < -swipeConfidenceThreshold) {
-                paginate(1)
+                paginate(1);
               } else if (swipe > swipeConfidenceThreshold) {
-                paginate(-1)
+                paginate(-1);
               }
             }}
             className="absolute inset-0"
@@ -193,7 +193,10 @@ export default function Body() {
         {/* Progress Bar */}
         <div className="absolute bottom-0 left-0 right-0 flex gap-1 p-4">
           {slides.map((_, index) => (
-            <div key={index} className="h-1 flex-1 overflow-hidden rounded-full bg-white/20">
+            <div
+              key={index}
+              className="h-1 flex-1 overflow-hidden rounded-full bg-white/20"
+            >
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{
@@ -221,7 +224,9 @@ export default function Body() {
           >
             <div className="grid gap-6 md:grid-cols-3">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">From Address</label>
+                <label className="text-sm font-medium text-gray-900">
+                  From Address
+                </label>
                 <input
                   type="text"
                   className="w-full rounded-lg border border-gray-200 px-4 py-3 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -229,7 +234,9 @@ export default function Body() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">To Address</label>
+                <label className="text-sm font-medium text-gray-900">
+                  To Address
+                </label>
                 <input
                   type="text"
                   className="w-full rounded-lg border border-gray-200 px-4 py-3 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -237,7 +244,9 @@ export default function Body() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">Date</label>
+                <label className="text-sm font-medium text-gray-900">
+                  Date
+                </label>
                 <div className="relative">
                   <input
                     type="date"
@@ -251,6 +260,5 @@ export default function Body() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
